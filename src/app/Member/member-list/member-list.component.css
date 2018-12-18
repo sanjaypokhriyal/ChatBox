@@ -1,0 +1,127 @@
+.convo-container{
+    position: absolute;
+    width: 90%;
+     /* margin-top:50px;   */
+     /* padding: 50px; */
+    height: 100%;
+    /* background: rgba(5,62,84, 1); */
+    
+    transform:rotate(0deg) skew(0deg) scale(.8) ;
+    transition:0.5s;
+    /* border: 3px solid gray; */
+    text-align: right;
+    margin-right: 50px;
+    justify-content: right;
+    color:rgba(5,62,84, 1);;
+
+}
+
+.convo-container .mat-icon{
+    display: none;
+}
+
+.convo-container:hover .mat-icon{
+    display: block;
+}
+ 
+/* .convo-container:hover {
+    height: 150px;
+    position: absolute;
+} 
+
+.mat-list-item:hover .convo-container {
+    height: 50px;
+    position: absolute;
+}  */
+.members{
+    margin: 0px 5px 0px 5px;
+    /* overflow: scroll; */
+}
+.members .mat-list-item{
+    margin:40px 0px 40px 0px;
+    background-color:  rgba(3, 177, 177, 1);
+}
+.mat-list-item{
+    background:linear-gradient(45deg,rgba(3, 177, 177,1),rgba(69, 214, 147,0.5));
+    margin: 5px;
+    border:3px solid white!important;
+    transition: 0.5s;
+    text-align: center;
+  }
+
+  
+.SelectedMember
+ {
+  color: rgba(3, 177, 177,1)!important;
+  background:linear-gradient(45deg,white,white);
+  border:3px solid rgba(3, 177, 177,1)!important;
+} 
+
+.ReadOnly{
+  color: rgba(3, 177, 177,1)!important;
+  background:linear-gradient(45deg,rgba(3, 177, 177,1),white);
+  border:3px solid rgba(3, 177, 177,1)!important;
+}
+
+
+.members .mat-list-item .convo-container{
+    transition: 0.2s;
+}
+
+.members .mat-list-item:hover .convo-container{
+height: 130px;
+position: absolute;
+}
+
+.AddMembers{
+    background-color: rgba(3, 177, 177, 1);
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: 0.3s;
+}
+
+.AddMembers:hover{
+    color:rgba(3, 177, 177, 1);
+    background: linear-gradient(45deg,rgba(3, 177, 177, 0.8),white,rgba(3, 177, 177, 0.2));
+    border: 2px solid rgba(3, 177, 177, 1);
+}
+
+
+.Card{
+    height: 80%;
+    position: absolute;
+    overflow: scroll;
+    width: 70%;
+    border: 0px solid gray;
+
+}
+.mat-checkbox {
+    display: none;
+}
+.mat-list-item:hover .mat-checkbox {
+    display: block;
+}
+
+.mat-list-item:hover ::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color:  white!important;
+  }
+  
+.mat-list-item:hover ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color:rgba(3, 177, 177, 1)!important;
+    color: white;
+  }
+  
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color:  rgba(3, 177, 177, 1)!important;
+  }
+  
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color:rgba(3, 177, 177, 1)!important;
+    color: white;
+  }
+  
+  ::-webkit-scrollbar {   
+    width: 5px;
+}

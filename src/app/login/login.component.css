@@ -1,0 +1,48 @@
+.login {
+    text-align: center;
+}
+ 
+.mat-spinner {
+    width: 20px !important;
+    height: 20px !important;
+    display: inline-block;
+    margin-left: 10px;
+}
+ 
+ .mat-spinner svg{
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.login-containter{
+    transform: translateY(45%);
+    border-radius: 10px;
+    /* background:linear-gradient(to right #36d1dc, #5b86e5); */
+    /* background-image: linear-gradient(to right,#36d1dc, white, #36d1dc); */
+    background: linear-gradient(45deg,
+                                              rgba(225, 225, 225, 0.9) 50%,
+                                              transparent 60%,
+											  rgba(225, 225, 225, 0.8)  75%,
+											  transparent 75%,
+                                              transparent);
+}
+/* background-image: linear-gradient(to right,#36d1dc,#36d1dc, #5b86e5,#36d1dc,#36d1dc); */
+
+button[type='submit']{
+    background-color: #4ce4e4;
+    color: black;
+}
+ 
+i{
+    transition: 0.5s;
+}
+
+.proceed{
+ animation: proceeded 0.8s linear infinite; 
+ /* transform: translateX(15px); */
+}
+
+@keyframes proceeded {
+    0%   {transform: translateX(0px)}
+    100% {transform: translateX(15px)}
+}

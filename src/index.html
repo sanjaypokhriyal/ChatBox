@@ -7,8 +7,85 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+      .leg,.body,.hand {
+          top: 200px;
+          border-left: 6px solid green;
+          height: 100px;
+          /* transition: 0.5s;  */
+          position: absolute;
+          left: 500px;
+          
+      }
+      .head{
+        top:150px;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        position: absolute;
+        left: 425px;
+        background-color: teal;
+      }
+      .hand{
+        top: 200px; /* (Height+border-width)/2*/
+        transform: skewX(45deg);
+        animation: moveHands 1.5s infinite  linear 0s;
+        animation-direction: alternate;
+      }
+      .leg {
+        top: 306px;
+        transform: skewX(45deg);
+        animation: moveLegs 1.5s infinite  linear 0s;
+        animation-direction: alternate;
+      }
+      .body{
+        left: 450px;
+        border-left: 6px solid yellow;
+        transform: skewX(0deg);
+      }
+     
+      .h1{
+        border-top: 6px solid green;
+          width: 500px;
+      }
+
+      @keyframes moveLegs {
+          0% {left: 500px; transform: skewX(45deg);}
+          100% {left: 400px;
+        transform: skewX(-45deg)}
+      }
+
+       @keyframes moveHands {
+          100% {left: 500px; transform: skewX(45deg); }
+          0% {left: 400px;
+        transform: skewX(-45deg)}
+      }
+      body{
+        align-content: center;
+        text-align: center;
+        width: 100%;
+      }
+  </style>
+<!-- 
+  <script>
+    $(document).ready()
+  </script> -->
 </head>
 <body>
-  <app-root></app-root>
+<!-- 
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="hand"></div>
+        <div class="hand" style="animation-direction: alternate-reverse;border-left: 6px solid rgb(152, 184, 152);"></div>
+        <div class="leg"></div>
+        <div class="leg" style="animation-direction: alternate-reverse;border-left: 6px solid rgb(152, 184, 152);"></div>
+      -->
+ 
+  <!-- <div style="background-color: rebeccapurple;height: 100px;position: absolute;top:0px;width: 100%;">asdasd</div> -->
+  <app-root></app-root> 
+<!-- <div style="background-color: rebeccapurple;height: 50px;position: absolute;bottom:0px;width: 100%;">asdasd</div> -->
+  
 </body>
 </html>

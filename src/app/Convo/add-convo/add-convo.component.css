@@ -1,0 +1,13 @@
+.AddMembers{
+    background-color: rgba(3, 177, 177, 1);
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: 0.3s;
+}
+
+.AddMembers:hover{
+    color:rgba(3, 177, 177, 1);
+    background: linear-gradient(45deg,rgba(3, 177, 177, 0.8),white,rgba(3, 177, 177, 0.2));
+    border: 2px solid rgba(3, 177, 177, 1);
+}

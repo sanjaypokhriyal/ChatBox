@@ -1,0 +1,24 @@
+
+
+<!-- <mat-card class="Card"> -->
+  <div style="height: 100%;top:20%;">
+      <div style="height: 85%;width: 100%;overflow: scroll;top:2%;position: relative;">
+        <mat-list class="members">
+          <mat-list-item *ngFor="let member of RemainingMembers" 
+                    [class.SelectedMember]="member.selected" > <!--  [class.ReadOnly]="member.Disable"-->
+            <div class="convo-container">
+            <p>{{member.UserName}}</p>
+              <mat-icon style="float: right;" *ngIf="!AddToConvo"  (click)="ChatWith(member.value)">forum</mat-icon> 
+            
+            <mat-checkbox style="float:left;"  title="{{member.selected?'Unselect':'Select'}} {{member.value}}" [(ngModel)]="member.selected" (change)="MemberSelected()"  *ngIf="AddToConvo" value="{{member.key}}" ></mat-checkbox>
+          </div>
+          </mat-list-item>
+      </mat-list> 
+    </div>
+    <div style="height: 10%;line-height: 50px; width: 100%;    line-height: 100px;
+    text-align: center;">
+      <button *ngIf="_AddMembers" mat-flat-button class="AddMembers" (click)="AddMembers();">Add Members</button>
+    </div>
+</div>
+<!-- </mat-card> -->
+  <!-- <mat-icon class="showConvo" matListIcon title="Add Members"  | filerMembers:SelectedConvoMembers  >forum</mat-icon> -->

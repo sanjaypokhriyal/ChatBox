@@ -1,0 +1,117 @@
+
+<mat-sidenav-container class="container">
+  <!-- <button mat-button > Convo</button> -->
+  
+  <mat-icon class="showConvo" matListIcon title="Conversations" (click)="sidenav.toggle();"   >forum</mat-icon>
+    <mat-sidenav position="start"  mode="side" opened #sidenav [style.width]="widht" style="overflow: hidden;">
+      <!-- <mat-card> -->
+        <!-- <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label >
+              
+              CONTACT LIST
+            </ng-template>
+          </mat-tab>
+        </mat-tab-group> -->
+        <!-- <div id="upperSegment"></div> -->
+         <h4 class="conovoHeader" ><b>CONVERSATIONS</b></h4>
+         <mat-icon class="AddMember Refresh" style="float: right;" (click)="RefreshConvo()"   matListIcon title="Refresh Conversation" >refresh</mat-icon>     
+          <mat-form-field class="full-width Search">
+            <!-- <input matInput placeholder="Search" type="search" #search  [formControl]="convoSearch" > -->
+            <input matInput placeholder="Search" type="search" #search  >
+            <mat-icon class="AddMember" style="float: right;" (click)="ChatWith(username)"   matListIcon title="Add Conversation" >add_circle</mat-icon>
+          </mat-form-field>
+        
+            <mat-list class="conversations" style="overflow: scroll;">
+                <mat-list-item *ngFor="let conversation of (conversations | SearchConvo : search.value)" >
+                  <div class="convo-container "> 
+                    <!-- <div >
+                        <img style="max-width: 100% ;" src="https://www.w3schools.com/howto/img_avatar.png" >
+                    </div>  -->
+                    <mat-icon matListIcon title="Open Conversation" style="float: left;top:60px;position: relative;"  (click)="selectConversation(conversation.id);sidenav.toggle();">forum</mat-icon>
+                    <mat-icon matListIcon title="Delete Conversation" style="float: left;top:60px;position: relative;">delete_outline</mat-icon>
+                    <h4 style="right:50% ;transition: 0.5s;position: relative;z-index: 0;"><b>{{conversation.display_name}}</b></h4>
+                    
+                </div>
+                </mat-list-item>
+
+
+              </mat-list>
+          
+              <!-- <div id="home"></div> -->
+      <!-- </mat-card> -->
+    </mat-sidenav>
+    <mat-sidenav position="end" mode="side" opened  *ngIf="selectedConversation && account_circle"> 
+        <mat-icon matListIcon class="close" title="Close" (click)="account_circle=false;sidenav.toggle();" >clear</mat-icon>
+      
+        <member-list  [Members]="Members" [AddToConvo]="AddToConvo" [SelectedConvoMembers]="selectedConversation.Members"
+        (SelectedMembers)="AddSelectedMembers($event)"></member-list>
+      <!-- <mat-card> 
+          <mat-list class="members">
+              <mat-list-item *ngFor="let member of Members ">
+                <div class="convo-container">
+                <p>{{member.value}}</p>
+                <!-- <mat-icon style="float: right;" (click)="ChatWith(member.value)">forum</mat-icon> -->
+                <!-- <input matChec value="{{member.key}}" type="checkbox"   > 
+                <mat-checkbox style="float:left;" value="{{member.key}}"></mat-checkbox>
+              </div>
+              </mat-list-item>
+            </mat-list>
+      <!-- </mat-card> -->
+    </mat-sidenav>
+    <section class="empty-conversation" *ngIf="!selectedConversation">
+      <h1 class="mat-display-1">Select a conversation from the left to start chatting</h1>
+    </section>
+    <section *ngIf="selectedConversation" class="chatingSection" #MainSection>
+        <div  class="mat-typography conversation-header"  >
+            <h2>
+              <mat-icon>forum</mat-icon>
+              {{selectedConversation.display_Name}}</h2> &nbsp;&nbsp;
+            <p>
+              <mat-icon (click)="showMembers=!showMembers;" >account_circle</mat-icon>
+              {{(selectedConversation.Members | keys).length}} Members</p>
+              <!-- <mat-card *ngIf="account_circle">
+                  <mat-list class="members">
+                      <mat-list-item *ngFor="let member of selectedConversation.Members ">
+                        <p>{{member.UserName}} (member.value)</p>
+                      </mat-list-item>
+                    </mat-list>
+              </mat-card> -->
+              <mat-card  style="padding: 10px;position: relative;" *ngIf="showMembers">
+                <mat-chip-list >
+                    <mat-chip *ngFor="let member of selectedConversation.Members "  >{{member.value}}
+                        <mat-icon matChipRemove >cancel</mat-icon>
+                    </mat-chip>
+                
+                  </mat-chip-list>
+                <mat-icon class="AddMember" style="float: right;" (click)="account_circle=true;AddToConvo=true;"  matListIcon title="Add Member" >add_circle</mat-icon>
+              </mat-card>
+          </div>
+      <mat-divider></mat-divider>
+      <mat-list #MyChats dense style="overflow: scroll; height: 72%;" class="conversation-history mat-typography">
+          <mat-list-item class="messages" [ngClass]="{'rtl':event.from === username,
+                                                      'ltr':event.from != username}"  *ngFor="let event of events; index as i" [dir]="event.from === username ? 'rtl' : 'ltr'">
+
+            <img *ngIf="event.type == 'text'" matListAvatar matTooltip="{{selectedConversation.Members| filerUsers : event.from}}" src="https://randomuser.me/api/portraits/thumb/lego/{{1}}.jpg"
+            />
+            <p *ngIf="event.type == 'text'" [dir]="'ltr'" [innerHTML]="event.body.text"></p>
+            <p class="joined" *ngIf="event.type == 'member:joined'" class="text-center">
+              <b>{{selectedConversation.Members | filerUsers : event.from}}</b> has joined the conversation</p>
+          </mat-list-item>
+        </mat-list>
+        <div class="conversation-input">
+            <mat-divider></mat-divider>
+            <mat-form-field class="full-width">
+              <!-- <input matInput placeholder="Start chatting..." aria-rowspan="3"  name="text" [(ngModel)]="text"> -->
+         
+                  <textarea matInput placeholder="Start chatting..." [(ngModel)]="text" rows="4"></textarea>
+                  <!-- <emoji-input></emoji-input> -->
+             
+            </mat-form-field>
+          </div>
+          <mat-icon class="SendMessage" title="Send" matListIcon (click)="sendText(text)">send</mat-icon>
+
+    </section>
+    
+  </mat-sidenav-container>
+  

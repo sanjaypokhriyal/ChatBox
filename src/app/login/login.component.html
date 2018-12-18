@@ -1,0 +1,22 @@
+<mat-grid-list cols="4" rowHeight="100px" class="login-containter">
+  <mat-grid-tile colspan="1" rowspan="5"></mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1"></mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="5"></mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="3">
+    <mat-card-content class="mat-typography ">
+      <h1>Login</h1>
+      <form (ngSubmit)="onLogin()" >
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Username" name="username" [(ngModel)]="username" (blur)="proceeded=true" (focus)="proceeded=false">
+        </mat-form-field>
+        <br>
+        <button type="submit" mat-raised-button color="primary" (click)="showSpinner = (username!='')?!showSpinner:false">Proceed
+          <i class="material-icons" [class.proceed]="proceeded">
+            arrow_forward_ios
+            </i>
+        </button>
+      </form>
+      <!-- <mat-progress-spinner color="accent" mode="indeterminate" *ngIf="showSpinner"></mat-progress-spinner> -->
+    </mat-card-content>
+  </mat-grid-tile>
+</mat-grid-list>

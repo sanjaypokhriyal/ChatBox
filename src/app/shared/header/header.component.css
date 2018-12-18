@@ -1,0 +1,62 @@
+.HeaderContainer{
+    /* background-image: url('../../../assets/Header1.png'); */
+     background:linear-gradient(to bottom, rgba(3, 177, 177,1), rgba(3, 177, 177,0.5) , transparent);
+    height: 100px;
+    width: 100%;
+    top: 0px;
+    position: fixed;
+    z-index: 9999;;
+    color: white;
+    transition: 0.5s;
+    /* filter: blur(2px);
+  -webkit-filter: blur(2px); */
+   
+}
+
+.Scrolled{
+  background-color: rgba(3, 177, 177,1);
+}
+
+
+h1{
+    top: 30%;
+    position: relative;
+    left: 10px;
+}
+.mail{
+   transform: scale(1.3);
+}
+h1 i{
+    left:2%;
+    color:white;
+    position: relative;
+    transition: 0.2s;
+}
+
+.typewriter h2 {
+    overflow: hidden; 
+    border-right: .15em solid white; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em; 
+    float: right;
+    top: 30px;
+    line-height: 50px;
+    right: 10%;
+    position: relative;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 30% }
+  }
+  
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+  }

@@ -1,0 +1,23 @@
+.Content{
+    display: block;
+    transition: 0.2s;
+    height: 0px;
+    overflow: hidden;
+}
+
+footer{
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    top: 100%;
+    position: absolute;
+    width: 100%;
+    background-color:black;
+    color: white;
+    line-height: 50px;
+}
+
+.ShowContent{
+    display: block;
+    height: 100%;
+}

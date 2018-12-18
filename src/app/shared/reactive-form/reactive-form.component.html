@@ -1,0 +1,67 @@
+<!-- main app container -->
+<div style="top:15%;background-color: white;height: 100%;width: 100%;text-align: center;align-content: center;position: absolute;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Angular Reactive Form Validation</h3>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <!-- <label>First Name</label> -->
+                      <mat-form-field class="full-width Search">
+                      <input matInput placeholder="First Name" type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                     
+                    </mat-form-field>
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                  </div>
+                  </div>
+                  <div class="form-group">
+                      <!-- <label>Last Name</label> -->
+                      <mat-form-field class="full-width Search">
+                      <input type="text" matInput placeholder="Last Name" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      
+                    </mat-form-field>
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                  </div>
+                  </div>
+                  <div class="form-group">
+                      <!-- <label>Email</label> -->
+                      <mat-form-field class="full-width Search">
+                          <!-- [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  -->
+                      <input type="text" matInput placeholder="Email" formControlName="email" class="form-control" />
+                    </mat-form-field>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      <div *ngIf="!f.email.emailValidator">Not Valid</div>
+                  </div>
+                  </div>
+                  <div class="form-group">
+                      <!-- <label>Password</label> -->
+                      <mat-form-field class="full-width Search">
+                      <input type="password" matInput placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                     
+                    </mat-form-field>
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                  </div>
+                  </div>
+                  <div class="form-group">
+                      <button mat-button class="btn btn-primary">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<footer>
+  <a (click)="ShowFooterContent=!ShowFooterContent;" >@CopyWrite</a> <span> Pokhriyal Sanjay </span>
+  <div class="Content" [class.ShowContent]="ShowFooterContent">
+    <p>
+        Invoke and BeginInvoke both accept a delegate, which references the method on the target control that you want to run. Invoke works synchronously: the caller blocks until the marshal is complete. BeginInvoke works asynchronously: the caller returns immediately and the marshaled request is queued up (using the same message queue that handles keyboard, mouse, and timer events).
+    </p>
+  </div>
+</footer>
